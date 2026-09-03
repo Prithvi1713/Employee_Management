@@ -8,5 +8,7 @@ namespace Employee_Management.ApplicationDbContext
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
         public DbSet<DepartmentMaster> departmentMasters { get; set; }
+
+        public DbSet<DesignationMaster> designationMaster { get; set; }
     }
 }
