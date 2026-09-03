@@ -46,45 +46,6 @@ namespace Employee_Management.Migrations
 
                     b.ToTable("departmentMasters");
                 });
-
-            modelBuilder.Entity("Employee_Management.Models.DesignationMaster", b =>
-                {
-                    b.Property<int>("DesignationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DesignationId"));
-
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DesignationCode")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.Property<string>("DesignationName")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
-
-                    b.HasKey("DesignationId");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.ToTable("designationMaster");
-                });
-
-            modelBuilder.Entity("Employee_Management.Models.DesignationMaster", b =>
-                {
-                    b.HasOne("Employee_Management.Models.DepartmentMaster", "departmentMaster")
-                        .WithMany()
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("departmentMaster");
-                });
 #pragma warning restore 612, 618
         }
     }
