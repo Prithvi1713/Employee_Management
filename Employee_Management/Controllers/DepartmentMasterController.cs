@@ -50,6 +50,7 @@ namespace Employee_Management.Controllers
             }
             // _context.departmentMasters.Update(department);
             departmentData.DepartmentName = department.DepartmentName;
+            departmentData.DepartmentCode = department.DepartmentCode;
             departmentData.IsActive = department.IsActive;
              await _context.SaveChangesAsync();
             return Ok(" Department Data Updated Successfully");
